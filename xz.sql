@@ -1,17 +1,17 @@
 SET NAMES UTF8;
 DROP DATABASE IF EXISTS xuezi;
-CREATE DATABASE xz CHARSET=UTF8;
+CREATE DATABASE xuezi CHARSET=UTF8;
 USE xuezi;
 
 
 /**笔记本电脑型号家族**/
-CREATE TABLE xz_laptop_family(
+CREATE TABLE xuezi_laptop_family(
   fid INT PRIMARY KEY AUTO_INCREMENT,
   fname VARCHAR(32)
 );
 
 /**笔记本电脑**/
-CREATE TABLE xz_laptop(
+CREATE TABLE xuezi_laptop(
   lid INT PRIMARY KEY AUTO_INCREMENT,
   family_id INT,              #所属型号家族编号
   title VARCHAR(128),         #主标题
@@ -37,7 +37,7 @@ CREATE TABLE xz_laptop(
 );
 
 /**笔记本电脑图片**/
-CREATE TABLE xz_laptop_pic(
+CREATE TABLE xuezi_laptop_pic(
   pid INT PRIMARY KEY AUTO_INCREMENT,
   laptop_id INT,              #笔记本电脑编号
   sm VARCHAR(128),            #小图片路径
@@ -46,7 +46,7 @@ CREATE TABLE xz_laptop_pic(
 );
 
 /**用户信息**/
-CREATE TABLE xz_user(
+CREATE TABLE xuezi_user(
   uid INT PRIMARY KEY AUTO_INCREMENT,
   uname VARCHAR(32),
   upwd VARCHAR(32),
@@ -59,7 +59,7 @@ CREATE TABLE xz_user(
 );
 
 /**收货地址信息**/
-CREATE TABLE xz_receiver_address(
+CREATE TABLE xuezi_receiver_address(
   aid INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,                #用户编号
   receiver VARCHAR(16),       #接收人姓名
@@ -76,7 +76,7 @@ CREATE TABLE xz_receiver_address(
 );
 
 /**购物车条目**/
-CREATE TABLE xz_shoppingcart_item(
+CREATE TABLE xuezi_shoppingcart_item(
   iid INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,      #用户编号
   product_id INT,   #商品编号
@@ -85,7 +85,7 @@ CREATE TABLE xz_shoppingcart_item(
 );
 
 /**用户订单**/
-CREATE TABLE xz_order(
+CREATE TABLE xuezi_order(
   aid INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
   address_id INT,
@@ -97,7 +97,7 @@ CREATE TABLE xz_order(
 )AUTO_INCREMENT=10000000;
 
 /**用户订单**/
-CREATE TABLE xz_order_detail(
+CREATE TABLE xuezi_order_detail(
   did INT PRIMARY KEY AUTO_INCREMENT,
   order_id INT,           #订单编号
   product_id INT,         #产品编号
@@ -105,7 +105,7 @@ CREATE TABLE xz_order_detail(
 );
 
 /****首页轮播广告商品****/
-CREATE TABLE xz_index_carousel(
+CREATE TABLE xuezi_index_carousel(
   cid INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(128),
   title VARCHAR(64),
@@ -113,7 +113,7 @@ CREATE TABLE xz_index_carousel(
 );
 
 /****首页商品****/
-CREATE TABLE xz_index_product(
+CREATE TABLE xuezi_index_product(
   pid INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(64),
   details VARCHAR(128),
@@ -129,7 +129,7 @@ CREATE TABLE xz_index_product(
 /******数据导入******/
 /*******************/
 /**笔记本电脑型号家族**/
-INSERT INTO xz_laptop_family VALUES
+INSERT INTO xuezi_laptop_family VALUES
 (NULL,'AppleMacBookAir'),
 (NULL,'小米Air'),
 (NULL,'ThinkPadE480C'),
@@ -142,7 +142,7 @@ INSERT INTO xz_laptop_family VALUES
 (NULL,'神舟战神Z7M-KP7GT');
 
 /**笔记本电脑**/
-INSERT INTO xz_laptop VALUES
+INSERT INTO xuezi_laptop VALUES
 (1,1,'Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/128GB SSD闪存 MMGF2CH/A)','5月焕新季，领券买新机！神券满6000减600！一体成型金属机身，纤薄轻巧，长达12小时续航',6988,'*退货补运费 *30天无忧退货 *48小时快速退款 *72小时发货','双核i5/8GB内存/128GB闪存','AppleMacBook Air','MacOS','8G','1920*1080','集成显卡','Intel i5低功耗版','其它','轻薄本','128G固态','<div class="content_tpl"> <div class="formwork">   <div class="formwork_img"><br></div><div class="formwork_img">    <img alt="" class="" src="img/product/detail/57b15612N81dc489d.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_img">    <img alt="" class="" src="//img20.360buyimg.com/vc/jfs/t2683/60/4222930118/169462/233c7678/57b15616N1e285f09.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_text">    技术规格请前往 www.apple.com/cn/macbook-air/specs.html 查看完整内容。</div></div></div>',150123456789,2968,true),
 (2,1,'Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/256GB SSD闪存 MMGG2CH/A)','5月焕新季，领券买新机！神券满8000减800！一体成型金属机身，纤薄轻巧，长达12小时续航',8268,'*退货补运费 *30天无忧退货 *48小时快速退款 *72小时发货','双核i5/8GB内存/256GB闪存','AppleMacBook Air','MacOS','8G','1920*1080','集成显卡','Intel i5低功耗版','其它','轻薄本','256G固态','<div class="content_tpl"> <div class="formwork">   <div class="formwork_img"><br></div><div class="formwork_img">    <img alt="" class="" src="img/product/detail/57b15612N81dc489d.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_img">    <img alt="" class="" src="//img20.360buyimg.com/vc/jfs/t2683/60/4222930118/169462/233c7678/57b15616N1e285f09.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_text">    技术规格请前往 www.apple.com/cn/macbook-air/specs.html 查看完整内容。</div></div></div>',150223456789,1922,false),
 (3,1,'Apple MacBook Air 13.3英寸笔记本电脑 银色(Core i7 处理器/8GB内存/128GB SSD闪存 Z0TA0002L)','i7处理器在此！依旧纤薄轻盈，续航持久，能胜任更多高强度工作，办公利器！',7488,'*退货补运费 *30天无忧退货 *48小时快速退款 *72小时发货','定制款：双核i7/8G内存/128G闪存','AppleMacBook Air','MacOS','8G','1920*1080','集成显卡','Intel i7低功耗版','其它','轻薄本','128G固态','<div class="content_tpl"><div class="formwork"><div class="formwork_img"><img class="" src="//img20.360buyimg.com/vc/jfs/t3034/151/748569500/226790/d6cd86a2/57b15612N81dc489d.jpg"></div></div><div class="formwork"><div class="formwork_img"><img class="" src="//img20.360buyimg.com/vc/jfs/t2683/60/4222930118/169462/233c7678/57b15616N1e285f09.jpg"></div></div><div class="formwork"><div class="formwork_text">技术规格 请前往 www.apple.com/cn/macbook-air/specs.html 查看完整内容。</div></div></div>',150323456789,733,false),
@@ -188,7 +188,7 @@ INSERT INTO xz_laptop VALUES
 (43,10,'神舟(HASEE)战神Z6-KP7GT 15.6英寸游戏本笔记本电脑(i7-7700HQ 8G 1T+128G SSD GTX1050 1080P)黑色','预约享5499抢！【128G SSD+1T HDD】双硬盘，春风“十”里，期待是你！',5699,' *退货补运费 *30天无忧退货 *48小时快速退款 *72小时发货','Z6 GT【i7 128G+1T GTX1050】','神舟战神Z6-KP7GT','Windows 10','8G','全高清屏(1920×1080)','GTX1050','Intel i7标准电压版','2G','游戏本','128G+1T','<div class="content_tpl"><div class="formwork"><div class="formwork_img"><img class="" src="img/product/detail/58c67b22Ned66fcb8.jpg"> <img class="" src="img/product/detail/58c67b23Nfffc2f8b.jpg"> <img class="" src="img/product/detail/58c67b22N04b18388.jpg"> <img class="" src="img/product/detail/58c67b24N6d5ce71c.jpg"> <img class="" src="img/product/detail/58c67b24Nac3dc074.jpg"> <img class="" src="img/product/detail/58c67b22N8aa1905c.jpg"> <img class="" src="img/product/detail/58c67b24N9aa8a252.jpg"></div></div></div>',156123456789,1844,true);
 
 /**笔记本电脑图片**/
-INSERT INTO xz_laptop_pic VALUES
+INSERT INTO xuezi_laptop_pic VALUES
 (NULL, 1, 'img/product/sm/57b12a31N8f4f75a3.jpg','img/product/md/57b12a31N8f4f75a3.jpg','img/product/lg/57b12a31N8f4f75a3.jpg'),
 (NULL, 1, 'img/product/sm/57ad359dNd4a6f130.jpg','img/product/md/57ad359dNd4a6f130.jpg','img/product/lg/57ad359dNd4a6f130.jpg'),
 (NULL, 1, 'img/product/sm/57ad8846N64ac3c79.jpg','img/product/md/57ad8846N64ac3c79.jpg','img/product/lg/57ad8846N64ac3c79.jpg'),
@@ -487,21 +487,21 @@ INSERT INTO xz_laptop_pic VALUES
 (NULL, 43, 'img/product/sm/58a2c66aNcd10ee32.jpg','img/product/md/58a2c66aNcd10ee32.jpg','img/product/lg/58a2c66aNcd10ee32.jpg');
 
 /**用户信息**/
-INSERT INTO xz_user VALUES
+INSERT INTO xuezi_user VALUES
 (NULL, 'dingding', '123456', 'ding@qq.com', '13501234567', 'img/avatar/default.png', '丁伟', '1'),
 (NULL, 'dangdang', '123456', 'dang@qq.com', '13501234568', 'img/avatar/default.png', '林当', '1'),
 (NULL, 'doudou', '123456', 'dou@qq.com', '13501234569', 'img/avatar/default.png', '窦志强', '1'),
 (NULL, 'yaya', '123456', 'ya@qq.com', '13501234560', 'img/avatar/default.png', '秦小雅', '0');
 
 /****首页轮播广告商品****/
-INSERT INTO xz_index_carousel VALUES
+INSERT INTO xuezi_index_carousel VALUES
 (NULL, 'img/index/banner1.png','轮播广告商品1','product_details.html?lid=28'),
 (NULL, 'img/index/banner2.png','轮播广告商品2','product_details.html?lid=19'),
 (NULL, 'img/index/banner3.png','轮播广告商品3','lookforward.html'),
 (NULL, 'img/index/banner4.png','轮播广告商品4','lookforward.html');
 
 /****首页商品****/
-INSERT INTO xz_index_product VALUES
+INSERT INTO xuezi_index_product VALUES
 (NULL, 'Apple MacBook Air系列', '酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存', 'img/index/study_computer_img1.png', 6988, 'product_details.html?lid=1', 1, 1, 1),
 (NULL, '小米Air 金属超轻薄', '酷睿双核i5处理器|512GB SSD|2GB内存|英特尔HD独立显卡', 'img/index/study_computer_img2.png', 3488, 'product_details.html?lid=5', 2, 2, 2),
 (NULL, '联想E480C 轻薄系列', '酷睿双核i7处理器|256GB SSD|4GB内存|英特尔HD显卡680M', 'img/index/study_computer_img3.png', 5399, 'product_details.html?lid=9', 3, 3, 3),
